@@ -1,0 +1,3 @@
+[submodule "Frameworks/JSONKit"]
+	path = Frameworks/JSONKit
+	url = git://github.com/IndyHallLabs/jsonkit.git

@@ -24,12 +24,12 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#import "NSString+DiscIdent.h"
+#import "NSString+DiscIdentKit.h"
 #import <sys/types.h>
 #import <sys/stat.h>
 #import <openssl/md5.h>
 
-@implementation NSString (DiscIdent)
+@implementation NSString (DiscIdentKit)
 
 - (NSString*) stringByComputingDiscIdentFingerprintForDiscAtPath
 {

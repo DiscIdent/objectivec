@@ -27,7 +27,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (DiscIdent)
+@interface NSString (DiscIdentKit)
 - (NSString*) stringByComputingDiscIdentFingerprintForDiscAtPath;
 @end
 

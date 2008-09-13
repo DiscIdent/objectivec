@@ -25,7 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #import <Cocoa/Cocoa.h>
-#import "Media.h"
 
 @interface DiscIdentQuery : NSObject {
     NSMutableData* receivedData;
