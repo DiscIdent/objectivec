@@ -25,5 +25,5 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <DiscIdentKit/NSString+DiscIdent.h>
+#import <DiscIdentKit/NSString+DiscIdentKit.h>
 #import <DiscIdentKit/DiscIdentQuery.h>
