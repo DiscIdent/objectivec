@@ -1,0 +1,3 @@
+[submodule "Libraries/JSONKit"]
+	path = Libraries/JSONKit
+	url = git://github.com/IndyHallLabs/jsonkit.git
