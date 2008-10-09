@@ -42,8 +42,10 @@
 
 + (id) queryWithFingerprint:(NSString*)fingerprint;
 + (id) queryWithFingerprint:(NSString*)fingerprint delegate:(id)delegate userInfo:(void*)userInfo startImmediately:(BOOL)startImmediately;
++ (id) queryWithFingerprint:(NSString*)fingerprint timeoutInterval:(NSTimeInterval)timeoutInterval;
++ (id) queryWithFingerprint:(NSString*)fingerprint timeoutInterval:(NSTimeInterval)timeoutInterval delegate:(id)delegate userInfo:(void*)userInfo startImmediately:(BOOL)startImmediately;
 
-- (id) initWithFingerprint:(NSString*)fingerprint;
+- (id) initWithFingerprint:(NSString*)fingerprint timeoutInterval:(NSTimeInterval)timeoutInterval;
 
 - (void) start;
 - (void) cancel;

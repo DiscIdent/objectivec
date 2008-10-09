@@ -44,13 +44,23 @@ NSString* const kDISC_IDENT_VERSION = @"v1";
 
 + (id) queryWithFingerprint:(NSString*)fingerprint
 {
-    return [[[DiscIdentQuery alloc] initWithFingerprint:fingerprint] autorelease];
+    return [[[DiscIdentQuery alloc] initWithFingerprint:fingerprint timeoutInterval:3.0] autorelease];
+}
+
++ (id) queryWithFingerprint:(NSString*)fingerprint timeoutInterval:(NSTimeInterval)timeoutInterval
+{
+    return [[[DiscIdentQuery alloc] initWithFingerprint:fingerprint timeoutInterval:3.0] autorelease];
 }
 
 + (id) queryWithFingerprint:(NSString*)fingerprint delegate:(id)delegate userInfo:(void*)userInfo startImmediately:(BOOL)startImmediately
 {
+    return [DiscIdentQuery queryWithFingerprint:fingerprint timeoutInterval:3.0 delegate:delegate userInfo:userInfo startImmediately:startImmediately];
+}
+
++ (id) queryWithFingerprint:(NSString*)fingerprint timeoutInterval:(NSTimeInterval)timeoutInterval delegate:(id)delegate userInfo:(void*)userInfo startImmediately:(BOOL)startImmediately
+{
     NSAssert(delegate, @"The delegate must not be nil.");
-    DiscIdentQuery* query = [DiscIdentQuery queryWithFingerprint:fingerprint];
+    DiscIdentQuery* query = [DiscIdentQuery queryWithFingerprint:fingerprint timeoutInterval:(NSTimeInterval)timeoutInterval];
     query.delegate = delegate;
     query.userInfo = userInfo;
     if (startImmediately) {
@@ -59,11 +69,11 @@ NSString* const kDISC_IDENT_VERSION = @"v1";
     return query;
 }
 
-- (id) initWithFingerprint:(NSString*)_fingerprint
+- (id) initWithFingerprint:(NSString*)_fingerprint timeoutInterval:(NSTimeInterval)timeoutInterval
 {
     if (self = [super init]) {
         fingerprint = [_fingerprint retain];
-        request = [[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://discident.com/%@/%@/", kDISC_IDENT_VERSION, _fingerprint]]] retain];
+        request = [[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://discident.com/%@/%@/", kDISC_IDENT_VERSION, _fingerprint]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:timeoutInterval] retain];
     }
     return self;
 }
