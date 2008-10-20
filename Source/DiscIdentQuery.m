@@ -90,7 +90,7 @@ NSString* const kDISC_IDENT_VERSION = @"v1";
 - (void) start
 {
     NSAssert(!connection, @"This query has already been started.");
-    connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    connection = [[NSURLConnection alloc] initWithRequest:request delegate:[self retain] startImmediately:YES];
 }
 
 - (void) cancel
@@ -118,6 +118,7 @@ NSString* const kDISC_IDENT_VERSION = @"v1";
     [receivedData release];
     receivedData = nil;
     [self _fireDidFailWithError:error];
+    [self autorelease];
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection 
@@ -137,6 +138,7 @@ NSString* const kDISC_IDENT_VERSION = @"v1";
     } else {
         [self _fireDidReceiveResponse: response];
     }
+    [self autorelease];
 }
 
 @end
