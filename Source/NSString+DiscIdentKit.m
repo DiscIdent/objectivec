@@ -62,6 +62,9 @@
             [data appendBytes:buffer length:length];
         }
     }
+    if (![data length]) {
+        return nil;
+    }
     
     /*  Generate the fingerprint.
      */
