@@ -264,6 +264,7 @@
 				OTHER_LDFLAGS = "-lcrypto";
 				PRODUCT_NAME = DiscIdentKit;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
+				VALID_ARCHS = "i386 ppc ppc7400 x86_64";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -289,6 +290,7 @@
 				OTHER_LDFLAGS = "-lcrypto";
 				PRODUCT_NAME = DiscIdentKit;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
+				VALID_ARCHS = "i386 ppc ppc7400 x86_64";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
